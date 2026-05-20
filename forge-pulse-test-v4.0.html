@@ -732,7 +732,7 @@ select, input[type="text"], input[type="search"] { font-size: 16px !important; }
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
 </head>
 <body>
-<div style="position:fixed;top:0;left:0;right:0;z-index:99999;background:rgba(245,168,0,.97);color:#000;font-size:10px;font-weight:700;text-align:center;padding:4px 8px;letter-spacing:.05em;font-family:monospace;pointer-events:none;">⚗️ FORGE TEST BUILD v4.0 · SYNTHETIC DATA ONLY</div>
+<div style="position:fixed;top:0;left:0;right:0;z-index:99999;background:rgba(245,168,0,.97);color:#000;font-size:10px;font-weight:700;text-align:center;padding:4px 8px;letter-spacing:.05em;font-family:monospace;pointer-events:none;">⛏️ FORGE TEST BUILD v4.0 · SYNTHETIC DATA ONLY</div>
 <!-- FORGE LOCK SCREEN — shown before any data renders -->
 <div id="forge-lock" style="
   position:fixed;inset:0;z-index:999999;
@@ -1207,7 +1207,7 @@ const FORGE_AUTH = (function () {
         publicKey: {
           challenge:    chal,
           rp:           { name: 'Forge Family Finance', id: location.hostname },
-          user:         { id: new TextEncoder().encode('forge-luka'), name: 'forge', displayName: 'Forge' },
+          user:         { id: new TextEncoder().encode('forge-henderson'), name: 'forge', displayName: 'Forge' },
           pubKeyCredParams: [{ type: 'public-key', alg: -7 }, { type: 'public-key', alg: -257 }],
           authenticatorSelection: {
             authenticatorAttachment: 'platform',
@@ -1343,19 +1343,19 @@ const BS_ACCOUNTS = {
   // CURRENT ASSETS (liquid, <12 months)
   'Checking - PNC':         { class:'asset', sub:'current',    label:'PNC Checking',          icon:'🏦', assetType:'Cash & Equivalents' },
   'Savings - PNC':          { class:'asset', sub:'current',    label:'PNC Savings',            icon:'💰', assetType:'Cash & Equivalents' },
-  'Savings - Sam':          { class:'asset', sub:'current',    label:'Savings — Sam',          icon:'💰', assetType:'Cash & Equivalents' },
-  'Savings - Whit':         { class:'asset', sub:'current',    label:'Savings — Whitney',      icon:'💰', assetType:'Cash & Equivalents' },
-  'Savings - Will':         { class:'asset', sub:'current',    label:'Savings — Will',         icon:'💰', assetType:'Cash & Equivalents' },
+  'Savings - Ethan':          { class:'asset', sub:'current',    label:'Savings — Ethan',          icon:'💰', assetType:'Cash & Equivalents' },
+  'Savings - Lily':         { class:'asset', sub:'current',    label:'Savings — Lily',      icon:'💰', assetType:'Cash & Equivalents' },
+  'Savings - Noah':         { class:'asset', sub:'current',    label:'Savings — Noah',         icon:'💰', assetType:'Cash & Equivalents' },
   // NON-CURRENT ASSETS (long-term)
-  '529 - Sam':              { class:'asset', sub:'education',  label:"529 Plan — Sam",         icon:'🎓', assetType:'Education Accounts' },
-  '529 - Whit':             { class:'asset', sub:'education',  label:"529 Plan — Whitney",     icon:'🎓', assetType:'Education Accounts' },
-  '529 - Will':             { class:'asset', sub:'education',  label:"529 Plan — Will",        icon:'🎓', assetType:'Education Accounts' },
+  '529 - Ethan':              { class:'asset', sub:'education',  label:"529 Plan — Ethan",         icon:'🎓', assetType:'Education Accounts' },
+  '529 - Lily':             { class:'asset', sub:'education',  label:"529 Plan — Lily",     icon:'🎓', assetType:'Education Accounts' },
+  '529 - Noah':             { class:'asset', sub:'education',  label:"529 Plan — Noah",        icon:'🎓', assetType:'Education Accounts' },
   'Investing - NR':         { class:'asset', sub:'investment', label:'Investment — NR',        icon:'📈', assetType:'Investment Accounts' },
-  'Investing - Sam NR':     { class:'asset', sub:'investment', label:'Investment — Sam NR',    icon:'📈', assetType:'Investment Accounts' },
-  'Investing - Whit NR':    { class:'asset', sub:'investment', label:'Investment — Whit NR',   icon:'📈', assetType:'Investment Accounts' },
-  'Investing - Will NR':    { class:'asset', sub:'investment', label:'Investment — Will NR',   icon:'📈', assetType:'Investment Accounts' },
+  'Investing - Ethan NR':     { class:'asset', sub:'investment', label:'Investment — Ethan NR',    icon:'📈', assetType:'Investment Accounts' },
+  'Investing - Lily NR':    { class:'asset', sub:'investment', label:'Investment — Lily NR',   icon:'📈', assetType:'Investment Accounts' },
+  'Investing - Noah NR':    { class:'asset', sub:'investment', label:'Investment — Noah NR',   icon:'📈', assetType:'Investment Accounts' },
   'Investing - C&K':        { class:'asset', sub:'investment', label:'Investment — C&K',       icon:'📈', assetType:'Investment Accounts' },
-  'Retirement - Chris HH':  { class:'asset', sub:'retirement', label:'401(k) — Chris (HH)',    icon:'🔒', assetType:'Retirement Accounts' },
+  'Retirement - Alex HH':  { class:'asset', sub:'retirement', label:'401(k) — Alex (HH)',    icon:'🔒', assetType:'Retirement Accounts' },
   'Retirement - NR IRA':    { class:'asset', sub:'retirement', label:'IRA — NR',               icon:'🔒', assetType:'Retirement Accounts' },
   'Retirement - NR Roth':   { class:'asset', sub:'retirement', label:'Roth IRA — NR',          icon:'🔒', assetType:'Retirement Accounts' },
   'House':                  { class:'asset', sub:'property',   label:'Primary Residence',      icon:'🏠', assetType:'Real Estate', note:'Value in Quicken may reflect equity or purchase price — confirm FMV' },
@@ -1366,7 +1366,7 @@ const BS_ACCOUNTS = {
   'Credit - Amazon17':      { class:'liability', sub:'current',   label:'Amazon CC',           icon:'💳', liabType:'Credit Cards' },
   'Credit - ChPNC1':        { class:'liability', sub:'current',   label:'Chase PNC CC',        icon:'💳', liabType:'Credit Cards' },
   'Credit - Flag17':        { class:'liability', sub:'current',   label:'Flag CC',             icon:'💳', liabType:'Credit Cards' },
-  'Credit - KiPNC28':       { class:'liability', sub:'current',   label:'Kira PNC CC',         icon:'💳', liabType:'Credit Cards' },
+  'Credit - KiPNC28':       { class:'liability', sub:'current',   label:'Morgan PNC CC',         icon:'💳', liabType:'Credit Cards' },
   'Credit - Kohls27':       { class:'liability', sub:'current',   label:"Kohl's CC",           icon:'💳', liabType:'Credit Cards' },
   'Credit - Old Navy4':     { class:'liability', sub:'current',   label:'Old Navy CC',         icon:'💳', liabType:'Credit Cards' },
   'Credit - Quick19':       { class:'liability', sub:'current',   label:'Quick CC',            icon:'💳', liabType:'Credit Cards' },
@@ -1503,7 +1503,7 @@ const FORGE_HIERARCHY = {
       '401k':       ['Pre-Tax 401k', 'Roth 401k', 'Employer Match'],
       'IRA':        ['Traditional IRA', 'Roth IRA'],
       'HSA':        ['HSA Contribution'],
-      '529':        ['College Fund - Sam', 'College Fund - Whitney', 'College Fund - Will'],
+      '529':        ['College Fund - Ethan', 'College Fund - Lily', 'College Fund - Noah'],
     },
   },
 
@@ -1575,7 +1575,7 @@ const FORGE_HIERARCHY = {
   cell: {
     label: 'Cell Phones', icon: '📱',
     quickenParents: ['Bills & Utilities:Mobile Phone'],
-    quickenSubs: { 'Bills & Utilities:Mobile Phone': ['Chris Phone', 'Kira Phone', 'Family Plan'] },
+    quickenSubs: { 'Bills & Utilities:Mobile Phone': ['Alex Phone', 'Morgan Phone', 'Family Plan'] },
   },
 
   // ── NECESSITIES ───────────────────────────────────────────────────────────
@@ -3558,7 +3558,7 @@ function renderPulseSettings() {
     {name:'Sam',emoji:'⚾'},{name:'Whitney',emoji:'🎨'},{name:'Will',emoji:'🎮'},
   ];
   let familyBody = '';
-  familyBody += row('Family Name', 'Shown in reports', `<input id="ps-family-name" type="text" value="${(family.name||'').replace(/"/g,'&quot;')}" placeholder="The Luka Family" style="background:var(--lift);border:1px solid var(--line2);border-radius:var(--r-sm);padding:8px 12px;font-size:14px;font-family:var(--fu);color:var(--ink);width:160px;-webkit-appearance:none;" oninput="pulseSaveFamilyName(this.value)">`);
+  familyBody += row('Family Name', 'Shown in reports', `<input id="ps-family-name" type="text" value="${(family.name||'').replace(/"/g,'&quot;')}" placeholder="The Henderson Family" style="background:var(--lift);border:1px solid var(--line2);border-radius:var(--r-sm);padding:8px 12px;font-size:14px;font-family:var(--fu);color:var(--ink);width:160px;-webkit-appearance:none;" oninput="pulseSaveFamilyName(this.value)">`);
 
   familyBody += `<div style="padding:13px 16px;">
     <div style="font-size:11px;font-family:var(--fm);letter-spacing:.1em;text-transform:uppercase;color:var(--ink4);margin-bottom:10px;">Members</div>
@@ -4917,8 +4917,8 @@ function buildAccrualEngine(selMonth, sp) {
 
     // ── Per-employer bonus detection ───────────────────────────────────
     // A bonus shows as an anomalously high deposit from a known employer.
-    // We detect it per-payee (employer) so Highmark's bonus doesn't contaminate
-    // UPMC's normal check, and vice versa.
+    // We detect it per-payee (employer) so one employer's bonus doesn't contaminate
+    // the other's normal check, and vice versa.
     let bonusExclusion = 0;
     const bonusItems   = [];
     curPayTxns.forEach(t => {
