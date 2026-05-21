@@ -157,6 +157,7 @@ function svgBar(elId, labels, datasets, opts) {
 
 
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -1727,6 +1728,7 @@ function loadDemoDetails() {
 
 
 
+
 function detectAcctType(name) {
   const n = (name||'').toLowerCase();
   if (/credit|visa|mastercard|amex|american express|discover|card|cc|sapphire|freedom|venture|cash back|rewards|platinum/.test(n)) return 'credit';
@@ -1739,19 +1741,19 @@ const BS_ACCOUNTS = {
   // CURRENT ASSETS (liquid, <12 months)
   'Checking - PNC':         { class:'asset', sub:'current',    label:'PNC Checking',          icon:'🏦', assetType:'Cash & Equivalents' },
   'Savings - PNC':          { class:'asset', sub:'current',    label:'PNC Savings',            icon:'💰', assetType:'Cash & Equivalents' },
-  'Savings - Ethan':          { class:'asset', sub:'current',    label:'Savings — Sam',          icon:'💰', assetType:'Cash & Equivalents' },
-  'Savings - Lily':         { class:'asset', sub:'current',    label:'Savings — Whitney',      icon:'💰', assetType:'Cash & Equivalents' },
-  'Savings - Noah':         { class:'asset', sub:'current',    label:'Savings — Will',         icon:'💰', assetType:'Cash & Equivalents' },
+  'Savings - Ethan':          { class:'asset', sub:'current',    label:'Savings — Ethan',          icon:'💰', assetType:'Cash & Equivalents' },
+  'Savings - Lily':         { class:'asset', sub:'current',    label:'Savings — Lily',      icon:'💰', assetType:'Cash & Equivalents' },
+  'Savings - Noah':         { class:'asset', sub:'current',    label:'Savings — Noah',         icon:'💰', assetType:'Cash & Equivalents' },
   // NON-CURRENT ASSETS (long-term)
-  '529 - Ethan':              { class:'asset', sub:'education',  label:"529 Plan — Sam",         icon:'🎓', assetType:'Education Accounts' },
-  '529 - Lily':             { class:'asset', sub:'education',  label:"529 Plan — Whitney",     icon:'🎓', assetType:'Education Accounts' },
-  '529 - Noah':             { class:'asset', sub:'education',  label:"529 Plan — Will",        icon:'🎓', assetType:'Education Accounts' },
+  '529 - Ethan':              { class:'asset', sub:'education',  label:"529 Plan — Ethan",         icon:'🎓', assetType:'Education Accounts' },
+  '529 - Lily':             { class:'asset', sub:'education',  label:"529 Plan — Lily",     icon:'🎓', assetType:'Education Accounts' },
+  '529 - Noah':             { class:'asset', sub:'education',  label:"529 Plan — Noah",        icon:'🎓', assetType:'Education Accounts' },
   'Investing - NR':         { class:'asset', sub:'investment', label:'Investment — NR',        icon:'📈', assetType:'Investment Accounts' },
-  'Investing - Ethan NR':     { class:'asset', sub:'investment', label:'Investment — Sam NR',    icon:'📈', assetType:'Investment Accounts' },
-  'Investing - Lily NR':    { class:'asset', sub:'investment', label:'Investment — Whit NR',   icon:'📈', assetType:'Investment Accounts' },
-  'Investing - Noah NR':    { class:'asset', sub:'investment', label:'Investment — Will NR',   icon:'📈', assetType:'Investment Accounts' },
+  'Investing - Ethan NR':     { class:'asset', sub:'investment', label:'Investment — Ethan NR',    icon:'📈', assetType:'Investment Accounts' },
+  'Investing - Lily NR':    { class:'asset', sub:'investment', label:'Investment — Lily NR',   icon:'📈', assetType:'Investment Accounts' },
+  'Investing - Noah NR':    { class:'asset', sub:'investment', label:'Investment — Noah NR',   icon:'📈', assetType:'Investment Accounts' },
   'Investing - C&K':        { class:'asset', sub:'investment', label:'Investment — C&K',       icon:'📈', assetType:'Investment Accounts' },
-  'Retirement - Alex HH':  { class:'asset', sub:'retirement', label:'401(k) — Chris (HH)',    icon:'🔒', assetType:'Retirement Accounts' },
+  'Retirement - Alex HH':  { class:'asset', sub:'retirement', label:'401(k) — Alex (HH)',    icon:'🔒', assetType:'Retirement Accounts' },
   'Retirement - NR IRA':    { class:'asset', sub:'retirement', label:'IRA — NR',               icon:'🔒', assetType:'Retirement Accounts' },
   'Retirement - NR Roth':   { class:'asset', sub:'retirement', label:'Roth IRA — NR',          icon:'🔒', assetType:'Retirement Accounts' },
   'House':                  { class:'asset', sub:'property',   label:'Primary Residence',      icon:'🏠', assetType:'Real Estate', note:'Value in Quicken may reflect equity or purchase price — confirm FMV' },
@@ -1899,7 +1901,7 @@ const FORGE_HIERARCHY = {
       '401k':       ['Pre-Tax 401k', 'Roth 401k', 'Employer Match'],
       'IRA':        ['Traditional IRA', 'Roth IRA'],
       'HSA':        ['HSA Contribution'],
-      '529':        ['College Fund - Sam', 'College Fund - Whitney', 'College Fund - Will'],
+      '529':        ['College Fund - Ethan', 'College Fund - Lily', 'College Fund - Noah'],
     },
   },
 
@@ -1971,7 +1973,7 @@ const FORGE_HIERARCHY = {
   cell: {
     label: 'Cell Phones', icon: '📱',
     quickenParents: ['Bills & Utilities:Mobile Phone'],
-    quickenSubs: { 'Bills & Utilities:Mobile Phone': ['Chris Phone', 'Kira Phone', 'Family Plan'] },
+    quickenSubs: { 'Bills & Utilities:Mobile Phone': ['Alex Phone', 'Morgan Phone', 'Family Plan'] },
   },
 
   // ── NECESSITIES ───────────────────────────────────────────────────────────
@@ -3223,6 +3225,7 @@ function svgLine(elId, labels, datasets, opts) {
 
 
 
+
 function svgHBar(elId, labels, values, colors, bucketKeys) {
   const el = document.getElementById(elId);
   if (!el) return;
@@ -3288,6 +3291,7 @@ function svgHBar(elId, labels, values, colors, bucketKeys) {
   el.innerHTML = `<svg width="${W}" height="${H}" style="width:100%;height:${H}px;display:block;">${defs}${rows}</svg>`;
   bindChartTips(el);
 }
+
 
 
 
@@ -3410,6 +3414,7 @@ function svgWaterfall(elId, items) {
   el.innerHTML='<svg width="'+W+'" height="'+H+'" style="width:100%;height:'+H+'px;display:block;overflow:visible;">'+defs+grid+connectors+bars+yLbls+xLbls+hitAreas+'</svg>';
   bindChartTips(el);
 }
+
 
 
 
@@ -3824,6 +3829,7 @@ function buildSavingsRegister(months) {
 
 
 
+
 function buildCfpProof(selMonth, isNetIncome) {
   if (!selMonth || !txns.length) return null;
 
@@ -3921,6 +3927,62 @@ function buildCfpProof(selMonth, isNetIncome) {
   };
 }
 
+
+
+function showChartTip(e, text) {
+  const tip = document.getElementById('chartTip');
+  if (!tip) return;
+  const hasDrill = e.currentTarget && e.currentTarget.dataset && e.currentTarget.dataset.drill;
+  const raw = (text||'').replace(/&apos;/g,"'").replace(/&quot;/g,'"');
+  // Parse pipe-delimited sections into styled rows
+  const parts = raw.split(/\s*\|\s*/);
+  let html = '';
+  parts.forEach(function(p, i) {
+    p = p.trim();
+    if (!p) return;
+    if (i === 0) {
+      // Header row: month label
+      html += '<div style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;'
+            + 'color:rgba(255,255,255,.45);margin-bottom:6px;padding-bottom:5px;'
+            + 'border-bottom:1px solid rgba(255,255,255,.08);">'+p+'</div>';
+    } else {
+      // Data row: "Label: value" — color value by sign
+      const colon = p.indexOf(':');
+      if (colon > 0) {
+        const label = p.slice(0, colon).trim();
+        const val   = p.slice(colon+1).trim();
+        const isPos = val.startsWith('+') || (!val.startsWith('-') && !val.startsWith('−'));
+        const isNeg = val.startsWith('-') || val.startsWith('−');
+        const isNet = label.toLowerCase().includes('net');
+        const valCol = isNet ? (isNeg ? '#FF5C5C' : '#34D9C3') : 'rgba(255,255,255,.85)';
+        html += '<div style="display:flex;justify-content:space-between;align-items:baseline;'
+              + 'gap:16px;padding:2px 0;">'
+              + '<span style="color:rgba(255,255,255,.55);font-size:11px;">'+label+'</span>'
+              + '<span style="color:'+valCol+';font-weight:'+(isNet?'700':'500')+';font-size:12px;font-family:var(--fm);">'+val+'</span>'
+              + '</div>';
+      } else {
+        html += '<div style="color:rgba(255,255,255,.55);font-size:11px;padding:2px 0;">'+p+'</div>';
+      }
+    }
+  });
+  if (hasDrill) {
+    html += '<div style="font-size:9px;color:var(--gold);margin-top:6px;padding-top:5px;'
+          + 'border-top:1px solid rgba(255,255,255,.07);">↗ click to view transactions</div>';
+  }
+  tip.innerHTML = html;
+  tip.style.display = 'block';
+  positionChartTip(e);
+}
+
+
+function positionChartTip(e) {
+  const tip = document.getElementById('chartTip');
+  if (!tip || tip.style.display === 'none') return;
+  const x = e.clientX + 14, y = e.clientY - 10;
+  const tw = tip.offsetWidth + 20, th = tip.offsetHeight + 10;
+  tip.style.left = (x + tw > window.innerWidth  ? e.clientX - tw : x) + 'px';
+  tip.style.top  = (y + th > window.innerHeight ? e.clientY - th : y) + 'px';
+}
 
 
 function renderCashFlow() {
@@ -4176,19 +4238,19 @@ function renderCfBankDraw(months, projectedIdx) {
   out += '<div style="display:flex;align-items:center;justify-content:space-between;padding:12px 16px 10px;border-bottom:1px solid rgba(255,255,255,.07);">';
   out +=   '<div>';
   out +=     '<div style="font-size:13px;font-weight:700;color:var(--ink);letter-spacing:-.01em;">Banking vs. Drawing \u2014 Savings Discipline</div>';
-  out +=     '<div style="font-size:11px;color:var(--ink4);margin-top:2px;">How much are we building or depleting our operating position each month?</div>';
+  out +=     '<div style="font-size:12px;color:var(--ink4);margin-top:3px;line-height:1.5;">Month-over-month: are we building or drawing from our operating position?</div>';
   out +=   '</div>';
   out +=   '<div style="text-align:center;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:8px 14px;flex-shrink:0;">';
   out +=     '<div style="font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink4);margin-bottom:2px;">Discipline</div>';
-  out +=     '<div style="font-size:22px;font-weight:800;font-family:var(--fd);color:'+dsCol+';">'+disciplineScore+'%</div>';
-  out +=     '<div style="font-size:9px;color:var(--ink4);">'+bankMos+' of '+rows.length+' months</div>';
+  out +=     '<div style="font-size:28px;font-weight:800;font-family:var(--fd);color:'+dsCol+';line-height:1.1;">'+disciplineScore+'%</div>';
+  out +=     '<div style="font-size:11px;color:var(--ink4);margin-top:2px;">'+bankMos+' of '+rows.length+' months</div>';
   out +=   '</div>';
   out += '</div>';
 
   // Headline
-  out += '<div style="padding:10px 16px;background:rgba(255,255,255,.025);border-bottom:1px solid rgba(255,255,255,.06);">';
+  out += '<div style="padding:14px 18px;background:rgba(255,255,255,.03);border-bottom:1px solid rgba(255,255,255,.08);">';
   out +=   '<div style="font-size:12px;color:var(--ink3);line-height:1.6;">\u{1F3AF} '+headline+'</div>';
-  if (streakMsg) out += '<div style="font-size:11px;color:var(--ink4);margin-top:4px;">' + streakMsg + '</div>';
+  if (streakMsg) out += '<div style="font-size:12px;color:var(--ink4);margin-top:6px;">' + streakMsg + '</div>';
   out += '</div>';
 
   // KPI row
@@ -4196,8 +4258,8 @@ function renderCfBankDraw(months, projectedIdx) {
   function cfKpi(label, val, col, sub) {
     return '<div style="padding:10px 14px;border-right:1px solid rgba(255,255,255,.06);">'
          + '<div style="font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink4);margin-bottom:4px;">'+label+'</div>'
-         + '<div style="font-size:20px;font-weight:800;font-family:var(--fd);color:'+col+';">'+val+'</div>'
-         + (sub ? '<div style="font-size:10px;color:var(--ink4);margin-top:2px;">'+sub+'</div>' : '')
+         + '<div style="font-size:26px;font-weight:800;font-family:var(--fd);color:'+col+';line-height:1.1;">'+val+'</div>'
+         + (sub ? '<div style="font-size:11px;color:var(--ink4);margin-top:4px;">'+sub+'</div>' : '')
          + '</div>';
   }
   out += cfKpi('Net Position', kfmtS(netPos), netCol, 'vs. period start');
@@ -4205,7 +4267,7 @@ function renderCfBankDraw(months, projectedIdx) {
   out += cfKpi('Banked',  '+'+kfmt(totalBank), 'var(--pos)', bankMos+' months');
   out += '<div style="padding:10px 14px;">'
        + '<div style="font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink4);margin-bottom:4px;">Drawn</div>'
-       + '<div style="font-size:20px;font-weight:800;font-family:var(--fd);color:var(--neg);">\u2212'+kfmt(totalDraw)+'</div>'
+       + '<div style="font-size:26px;font-weight:800;font-family:var(--fd);color:var(--neg);line-height:1.1;">\u2212'+kfmt(totalDraw)+'</div>'
        + '<div style="font-size:10px;color:var(--ink4);margin-top:2px;">'+drawMos+' months</div>'
        + '</div>';
   out += '</div>';
@@ -4213,7 +4275,7 @@ function renderCfBankDraw(months, projectedIdx) {
   // Chart — own styled container, visually separated from table
   out += '<div style="border-top:1px solid rgba(255,255,255,.07);padding:14px 16px 10px;background:rgba(255,255,255,.014);">';
   out += '<div style="font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ink4);margin-bottom:8px;">Monthly Bank / Draw — Operating Accounts Only</div>';
-  out += '<div id="cfBankChart" style="width:100%;height:190px;"></div>';
+  out += '<div id="cfBankChart" style="width:100%;height:220px;"></div>';
   out += '</div>';
 
   // Table — analytics-grade, clearly below the chart
@@ -4232,16 +4294,16 @@ function renderCfBankDraw(months, projectedIdx) {
     var bg  = ri % 2 ? 'rgba(255,255,255,.028)' : 'rgba(255,255,255,.008)';
     var bkC = r.net >= 0 ? 'var(--pos)' : 'var(--neg)';
     var cuC = r.cumulative   >= 0 ? 'var(--pos)' : 'var(--neg)';
-    var FM  = 'font-size:11px;font-family:var(--fm);';
+    var FM  = 'font-size:12px;font-family:var(--fm);';
     function mf(v) { var a=Math.abs(v||0); return (v<0?'−':'')+'$'+a.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g,','); }
-    out += '<tr style="background:'+bg+';border-top:1px solid rgba(255,255,255,.05);">';
-    out += '<td style="padding:5px 16px;font-size:12px;font-weight:600;color:'+(isProj?'var(--gold)':'var(--ink2)')+';white-space:nowrap;">'+r.monthName+(isProj?' <span style="font-size:9px;font-family:var(--fm);font-style:italic;font-weight:400;">est.</span>':'')+'</td>';
-    out += '<td style="padding:5px 10px;text-align:right;'+FM+'color:var(--pos);">+'+mf(r.income)+'</td>';
-    out += '<td style="padding:5px 10px;text-align:right;'+FM+'color:var(--neg);">\u2212'+mf(r.expenses)+'</td>';
+    out += '<tr style="background:'+bg+';border-top:1px solid rgba(255,255,255,.05);height:38px;">';
+    out += '<td style="padding:7px 16px;font-size:13px;font-weight:600;color:'+(isProj?'var(--gold)':'var(--ink2)')+';white-space:nowrap;">'+r.monthName+(isProj?' <span style="font-size:9px;font-family:var(--fm);font-style:italic;font-weight:400;">est.</span>':'')+'</td>';
+    out += '<td style="padding:7px 10px;text-align:right;'+FM+'color:var(--pos);">+'+mf(r.income)+'</td>';
+    out += '<td style="padding:7px 10px;text-align:right;'+FM+'color:var(--neg);">\u2212'+mf(r.expenses)+'</td>';
     out += '<td style="padding:5px 10px;text-align:right;'+FM+'color:'+(r.xfersOut>0?'var(--river)':'rgba(255,255,255,.18)')+';">'+(r.xfersOut>0?'−'+kfmt(r.xfersOut):'—')+'</td>';
     out += '<td style="padding:5px 10px;text-align:right;'+FM+'color:'+(r.xfersIn>0?'var(--gold)':'rgba(255,255,255,.18)')+';">'+(r.xfersIn>0?'+'+kfmt(r.xfersIn):'—')+'</td>';
-    out += '<td style="padding:5px 10px;text-align:right;font-size:13px;font-weight:700;font-family:var(--fm);color:'+bkC+';">'+kfmtS(r.net)+'</td>';
-    out += '<td style="padding:5px 10px;text-align:right;font-size:13px;font-weight:700;font-family:var(--fm);color:'+cuC+';">'+kfmtS(r.cumulative)+'</td>';
+    out += '<td style="padding:7px 10px;text-align:right;font-size:14px;font-weight:800;font-family:var(--fd);color:'+bkC+';">'+kfmtS(r.net)+'</td>';
+    out += '<td style="padding:7px 10px;text-align:right;font-size:14px;font-weight:800;font-family:var(--fd);color:'+cuC+';">'+kfmtS(r.cumulative)+'</td>';
     out += '</tr>';
   });
   out += '</tbody></table></div>';
@@ -4264,16 +4326,19 @@ function renderCfBankDraw(months, projectedIdx) {
 
 
 
+
 function renderSavingsRegChart(el, labels, barData, lineData) {
   if (!el || !labels.length) return;
   var W = Math.max(el.offsetWidth || 520, 320);
-  var H = 220;
-  var PAD = {t:18, r:18, b:32, l:62};
+  var H = 240;
+  var PAD = {t:24, r:20, b:42, l:68};
   var cW = W - PAD.l - PAD.r, cH = H - PAD.t - PAD.b;
   var n = labels.length;
 
+  // Bars need zero baseline; cumulative line uses smart zero
+  var barVals = barData.filter(isFinite);
   var allVals = barData.concat(lineData).filter(isFinite);
-  var sc = computeScale(allVals, {showZero:true, padPct:0.18});
+  var sc = computeScale(allVals, {showZero:true, padPct:0.22});
   var maxV = sc.maxV, minV = sc.minV, span = sc.span;
   function yPx(v) { return PAD.t + cH - cH*(v-minV)/span; }
   var y0 = yPx(0);
@@ -4326,7 +4391,7 @@ function renderSavingsRegChart(el, labels, barData, lineData) {
 
     linePts.push({x:cx.toFixed(1), y:yPx(lineData[i]).toFixed(1), v:lineData[i]});
     if (i % step === 0 || i === n-1) {
-      xLbls += '<text x="'+cx.toFixed(1)+'" y="'+(H-4)+'" text-anchor="middle"'
+      xLbls += '<text x="'+cx.toFixed(1)+'" y="'+(H-8)+'" text-anchor="middle"'
              + ' fill="rgba(255,255,255,.38)" font-size="10" font-family="var(--fm)">'+labels[i]+'</text>';
     }
   });
@@ -4362,6 +4427,7 @@ function renderSavingsRegChart(el, labels, barData, lineData) {
   el.innerHTML = '<svg width="'+W+'" height="'+H+'" style="width:100%;height:'+H+'px;display:block;overflow:visible;">'
     + defs + grid + bars + lineEl + dots + yLbls + xLbls + zeroLabels + legend + '</svg>';
 }
+
 
 
 
@@ -4483,6 +4549,7 @@ function renderSavingsRegister() {
     renderSavingsRegChart(cw, labels, chartData, cumData);
   }, 0);
 }
+
 
 
 
@@ -6025,8 +6092,8 @@ function buildAccrualEngine(selMonth, sp) {
 
     // ── Per-employer bonus detection ───────────────────────────────────
     // A bonus shows as an anomalously high deposit from a known employer.
-    // We detect it per-payee (employer) so Highmark's bonus doesn't contaminate
-    // UPMC's normal check, and vice versa.
+    // We detect it per-payee (employer) so one employer's bonus doesn't contaminate
+    // the other's normal check, and vice versa.
     let bonusExclusion = 0;
     const bonusItems   = [];
     curPayTxns.forEach(t => {
@@ -7830,13 +7897,13 @@ function renderNetSavingsChart(elId, labels, data, opts) {
   if (!data || !data.length) { el.innerHTML = ''; return; }
 
   const W  = Math.max(el.offsetWidth || 520, 320);
-  const H  = 240;
-  const PT = 28, PB = 38, PL = 66, PR = 20;
+  const H  = 260;
+  const PT = 32, PB = 42, PL = 68, PR = 22;
   const cW = W - PL - PR, cH = H - PT - PB;
 
   const n       = data.length;
   // Dynamic scale: 15% of data span as padding — data always fills ~75% of chart
-  const _sc  = computeScale(data, { showZero:true, padPct:0.15 });
+  const _sc  = computeScale(data, { showZero:true, padPct:0.22 });
   const maxV = _sc.maxV, minV = _sc.minV, span = _sc.span;
   const yOf  = v => PT + cH - cH * (v - minV) / span;
   const xOf  = i => PL + (n < 2 ? cW / 2 : (i / (n - 1)) * cW);
@@ -8056,6 +8123,7 @@ function renderNetSavingsChart(elId, labels, data, opts) {
   </svg>`;
   bindChartTips(el);
 }
+
 
 
 
